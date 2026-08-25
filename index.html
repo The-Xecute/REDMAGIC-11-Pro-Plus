@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RedMagic 11 Pro Spoof — by The-Xecute</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Syne:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #04040a;
+  --card: #0c0c16;
+  --orange: #ff5500;
+  --orange2: #ff8800;
+  --cyan: #00e5ff;
+  --white: #f0f0ff;
+  --muted: #5a5a7a;
+  --border: rgba(255,85,0,0.15);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Syne', sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,85,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,85,0,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+.cursor { position: fixed; width: 10px; height: 10px; background: var(--orange); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); box-shadow: 0 0 14px var(--orange); transition: transform 0.1s; }
+.cursor-ring { position: fixed; width: 34px; height: 34px; border: 1px solid rgba(255,85,0,0.45); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width 0.2s, height 0.2s; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 48px;
+  background: rgba(4,4,10,0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family: 'Orbitron', monospace; font-weight: 900; font-size: 0.88rem; letter-spacing: 0.15em; color: var(--orange); text-shadow: 0 0 30px rgba(255,85,0,0.4); }
+.nav-links { display: flex; gap: 10px; }
+.nav-link { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 16px; border-radius: 5px; border: 1px solid var(--border); color: var(--muted); text-decoration: none; transition: all 0.2s; }
+.nav-link:hover, .nav-link.primary { border-color: var(--orange); color: var(--orange); }
+.nav-link.primary { background: rgba(255,85,0,0.1); }
+
+/* HERO */
+.hero {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 140px 24px 80px;
+  overflow: hidden;
+}
+.hero-orb {
+  position: absolute; width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(255,85,0,0.1) 0%, transparent 65%);
+  top: 50%; left: 50%; transform: translate(-50%,-55%);
+  pointer-events: none;
+  animation: orbPulse 5s ease-in-out infinite;
+}
+@keyframes orbPulse { 0%,100%{transform:translate(-50%,-55%) scale(1)} 50%{transform:translate(-50%,-55%) scale(1.2)} }
+.hero-bg-word {
+  position: absolute;
+  font-family: 'Orbitron', monospace; font-weight: 900;
+  font-size: clamp(90px, 20vw, 240px);
+  color: rgba(255,85,0,0.035);
+  letter-spacing: -0.02em;
+  pointer-events: none; user-select: none;
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 20px; border-radius: 100px;
+  border: 1px solid rgba(0,229,255,0.22);
+  background: rgba(0,229,255,0.05);
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--cyan); margin-bottom: 30px;
+  animation: fadeUp 0.6s ease both;
+}
+.pill-dot { width: 7px; height: 7px; background: var(--cyan); border-radius: 50%; box-shadow: 0 0 8px var(--cyan); animation: blink 1.6s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+h1 {
+  font-family: 'Orbitron', monospace; font-weight: 900;
+  font-size: clamp(2.8rem, 9vw, 6.5rem);
+  line-height: 1.0; letter-spacing: -0.02em;
+  animation: fadeUp 0.7s 0.1s ease both;
+}
+.line1 { display: block; color: var(--white); }
+.line2 {
+  display: block;
+  background: linear-gradient(90deg, var(--orange), var(--orange2), var(--cyan));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  filter: drop-shadow(0 0 28px rgba(255,85,0,0.45));
+}
+.hero-desc { max-width: 460px; margin: 22px auto 0; color: var(--muted); font-size: 1rem; line-height: 1.75; animation: fadeUp 0.7s 0.2s ease both; }
+.hero-ctas { display: flex; gap: 12px; margin-top: 42px; justify-content: center; flex-wrap: wrap; animation: fadeUp 0.7s 0.3s ease both; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 32px; border-radius: 6px; border: none; cursor: none;
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem;
+  letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+  transition: all 0.22s; position: relative; overflow: hidden;
+}
+.btn-fire { background: linear-gradient(135deg, var(--orange), var(--orange2)); color: #fff; box-shadow: 0 0 28px rgba(255,85,0,0.4); }
+.btn-fire:hover { transform: translateY(-3px); box-shadow: 0 0 50px rgba(255,85,0,0.65); }
+.btn-ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.12); }
+.btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 20px rgba(0,229,255,0.15); transform: translateY(-2px); }
+
+/* STATS */
+.stats {
+  position: relative; z-index: 1;
+  display: flex; flex-wrap: wrap;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  background: rgba(8,8,15,0.7); backdrop-filter: blur(8px);
+}
+.stat { flex: 1; min-width: 160px; padding: 32px 20px; text-align: center; border-right: 1px solid var(--border); }
+.stat:last-child { border-right: none; }
+.stat-num { font-family: 'Orbitron', monospace; font-weight: 900; font-size: 2.2rem; color: var(--orange); text-shadow: 0 0 20px rgba(255,85,0,0.5); display: block; }
+.stat-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 5px; display: block; }
+
+/* COMMON */
+section { position: relative; z-index: 1; }
+.container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+.sec-label { font-family: 'Orbitron', monospace; font-size: 0.64rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
+.sec-title { font-family: 'Orbitron', monospace; font-weight: 700; font-size: clamp(1.3rem, 3vw, 2rem); line-height: 1.2; margin-bottom: 44px; }
+
+/* FEATURES */
+.features-sec { padding: 100px 0; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.feat-card { background: var(--card); padding: 34px 26px; position: relative; overflow: hidden; transition: background 0.2s; }
+.feat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--orange), var(--cyan)); opacity: 0; transition: opacity 0.3s; }
+.feat-card:hover { background: #111122; }
+.feat-card:hover::before { opacity: 1; }
+.feat-icon { font-size: 1.9rem; margin-bottom: 14px; display: block; }
+.feat-title { font-family: 'Orbitron', monospace; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; color: var(--white); margin-bottom: 9px; }
+.feat-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+/* SPECS */
+.specs-sec { padding: 80px 0; }
+.specs-table { width: 100%; border-collapse: collapse; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.specs-table tr { border-bottom: 1px solid var(--border); transition: background 0.18s; }
+.specs-table tr:last-child { border-bottom: none; }
+.specs-table tr:hover { background: rgba(255,85,0,0.04); }
+.specs-table td { padding: 18px 26px; }
+.specs-table td:first-child { color: var(--muted); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; width: 40%; border-right: 1px solid var(--border); }
+.specs-table td:last-child { font-family: 'Orbitron', monospace; font-size: 0.83rem; color: var(--cyan); }
+
+/* REQUIREMENTS */
+.req-sec { padding: 80px 0; }
+.req-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.req-item { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 13px 20px; font-size: 0.9rem; font-weight: 600; transition: border-color 0.2s; }
+.req-item:hover { border-color: rgba(0,229,255,0.3); }
+.req-check { color: var(--cyan); }
+
+/* INSTALL */
+.install-sec { padding: 80px 0; }
+.steps { display: flex; flex-direction: column; gap: 2px; }
+.step { display: flex; align-items: flex-start; gap: 24px; background: var(--card); padding: 26px 30px; border: 1px solid var(--border); border-radius: 8px; transition: border-color 0.2s, transform 0.22s; }
+.step:hover { border-color: rgba(255,85,0,0.35); transform: translateX(8px); }
+.step-num { font-family: 'Orbitron', monospace; font-weight: 900; font-size: 1.5rem; color: rgba(255,85,0,0.2); min-width: 42px; line-height: 1; transition: color 0.2s; }
+.step:hover .step-num { color: var(--orange); }
+.step-title { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+.step-desc { color: var(--muted); font-size: 0.88rem; }
+
+/* DONATE */
+.donate-sec { padding: 80px 0 120px; }
+.donate-box { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 60px 40px; text-align: center; position: relative; overflow: hidden; }
+.donate-box::after { content: ''; position: absolute; inset: -1px; border-radius: 16px; background: linear-gradient(135deg, rgba(255,85,0,0.12), rgba(0,229,255,0.06), rgba(255,136,0,0.12)); z-index: -1; }
+.donate-emoji { font-size: 3.2rem; margin-bottom: 18px; display: block; }
+.donate-title { font-family: 'Orbitron', monospace; font-size: 1.5rem; font-weight: 700; margin-bottom: 12px; }
+.donate-desc { color: var(--muted); font-size: 0.95rem; max-width: 380px; margin: 0 auto 34px; line-height: 1.7; }
+.btn-saw { background: linear-gradient(135deg, #ff6b35, #ff9500); color: #fff; box-shadow: 0 0 30px rgba(255,107,53,0.4); }
+.btn-saw:hover { transform: translateY(-3px); box-shadow: 0 0 50px rgba(255,107,53,0.6); }
+
+/* FOOTER */
+footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid var(--border);
+  padding: 30px 48px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+.footer-logo { font-family: 'Orbitron', monospace; font-weight: 900; font-size: 0.8rem; letter-spacing: 0.14em; color: var(--orange); }
+.footer-copy { color: var(--muted); font-size: 0.82rem; }
+.footer-tag { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border: 1px solid var(--border); border-radius: 4px; color: var(--muted); }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(255,85,0,0.4); border-radius: 10px; }
+
+@media (max-width: 600px) {
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+  footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+  .stats { flex-direction: column; }
+  .stat { border-right: none; border-bottom: 1px solid var(--border); }
+  .stat:last-child { border-bottom: none; }
+  .step { flex-direction: column; gap: 8px; }
+  .donate-box { padding: 40px 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <div class="nav-logo">The-Xecute</div>
+  <div class="nav-links">
+    <a href="https://github.com/The-Xecute/REDMAGIC-11-Pro-Plus" target="_blank" class="nav-link primary">GitHub</a>
+    <a href="https://saweria.co" target="_blank" class="nav-link">☕ Donate</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-orb"></div>
+  <div class="hero-bg-word">120FPS</div>
+
+  <div class="pill">
+    <span class="pill-dot"></span>
+    Magisk Module · v1.0 Ultra · Latest
+  </div>
+
+  <h1>
+    <span class="line1">REDMAGIC</span>
+    <span class="line2">11 PRO+ SPOOF</span>
+  </h1>
+
+  <p class="hero-desc">
+    Magisk module to spoof device as ZTE Nubia Red Magic 11 Pro (NX809J) - Unlock 120FPS PUBG/CODM.
+  </p>
+
+  <div class="hero-ctas">
+    <a href="https://github.com/The-Xecute/REDMAGIC-11-Pro-Plus/releases" target="_blank" class="btn btn-fire">
+      ⬇ Download Now
+    </a>
+    <a href="https://github.com/The-Xecute/REDMAGIC-11-Pro-Plus" target="_blank" class="btn btn-ghost">
+      ★ View on GitHub
+    </a>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><span class="stat-num">120</span><span class="stat-label">FPS Unlocked</span></div>
+  <div class="stat"><span class="stat-num">SD 8</span><span class="stat-label">Elite Spoof</span></div>
+  <div class="stat"><span class="stat-num">MIT</span><span class="stat-label">Open Source</span></div>
+  <div class="stat"><span class="stat-num">v1.0</span><span class="stat-label">Latest Build</span></div>
+</div>
+
+<!-- FEATURES -->
+<section class="features-sec">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Advantages</p>
+      <h2 class="sec-title">Why Use This Module?</h2>
+    </div>
+    <div class="features-grid reveal">
+      <div class="feat-card">
+        <span class="feat-icon">🎯</span>
+        <div class="feat-title">Full Spoof</div>
+        <p class="feat-desc">Spoofs system, vendor, odm, and bootimage. Games can't tell your device apart.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">⚡</span>
+        <div class="feat-title">120 FPS PUBG & CODM</div>
+        <p class="feat-desc">Unlock high frame rates in popular games. Play smoother with faster response.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🧠</span>
+        <div class="feat-title">Snapdragon 8 Elite</div>
+        <p class="feat-desc">CPU & GPU spoofed to SM8750 + Adreno 830 to unlock the highest tier in game engines.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🔄</span>
+        <div class="feat-title">Auto Apply on Boot</div>
+        <p class="feat-desc">Install once, stays active. No need to reconfigure every time your phone restarts.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🪶</span>
+        <div class="feat-title">Super Lightweight</div>
+        <p class="feat-desc">Doesn't affect system performance. Battery and RAM stay as efficient as usual.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🔓</span>
+        <div class="feat-title">Open Source MIT</div>
+        <p class="feat-desc">Open source code. Free to use, modify, and develop by anyone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section class="specs-sec">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Target Device</p>
+      <h2 class="sec-title">Spoof Specifications</h2>
+    </div>
+    <table class="specs-table reveal">
+      <tr><td>📛 Device Name</td><td>REDMAGIC 11 Pro+</td></tr>
+      <tr><td>🔢 Model</td><td>NX809J</td></tr>
+      <tr><td>🏭 Brand</td><td>REDMAGIC</td></tr>
+      <tr><td>🧠 Chipset</td><td>Snapdragon 8 Elite (SM8850)</td></tr>
+      <tr><td>🎨 GPU</td><td>Adreno 840</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- REQUIREMENTS -->
+<section class="req-sec">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Requirements</p>
+      <h2 class="sec-title">What You Need</h2>
+    </div>
+    <div class="req-grid reveal">
+      <div class="req-item"><span class="req-check">✓</span> Android 8.0+</div>
+      <div class="req-item"><span class="req-check">✓</span> Magisk 20.4+</div>
+      <div class="req-item"><span class="req-check">✓</span> KernelSU (support)</div>
+      <div class="req-item"><span class="req-check">✓</span> Zygisk (recommended)</div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTALL -->
+<section class="install-sec">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Guide</p>
+      <h2 class="sec-title">Installation Steps</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <div class="step-title">Download the ZIP file</div>
+          <p class="step-desc">Grab the latest .zip file from the Releases page on GitHub.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <div class="step-title">Open Magisk → Modules</div>
+          <p class="step-desc">Tap "Install from storage" then select the downloaded ZIP file.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <div class="step-title">Wait for the Process to Finish</div>
+          <p class="step-desc">Let Magisk finish flashing the module automatically.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div>
+          <div class="step-title">Reboot & Play!</div>
+          <p class="step-desc">Restart your phone, open your favorite game, and enjoy 120FPS. Done! ✅</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<section class="donate-sec">
+  <div class="container">
+    <div class="donate-box reveal">
+      <span class="donate-emoji">☕</span>
+      <h2 class="donate-title">Buy The-Xecute a Coffee</h2>
+      <p class="donate-desc">If this module helped you play smoother, feel free to support via Saweria. Every donation means a lot for future development!</p>
+      <a href="https://saweria.co" target="_blank" class="btn btn-saw">❤️ Donate via Saweria</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">The-Xecute</div>
+  <div class="footer-copy">Made with ❤️ — REDMAGIC 11 Pro+</div>
+  <div class="footer-tag">MIT License</div>
+</footer>
+
+<script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0, my=0, rx=0, ry=0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx+'px'; cursor.style.top = my+'px';
+});
+(function animRing() {
+  rx += (mx-rx)*0.12; ry += (my-ry)*0.12;
+  ring.style.left = rx+'px'; ring.style.top = ry+'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a,.btn').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.style.transform='translate(-50%,-50%) scale(2.2)'; ring.style.width='52px'; ring.style.height='52px'; });
+  el.addEventListener('mouseleave', () => { cursor.style.transform='translate(-50%,-50%) scale(1)'; ring.style.width='34px'; ring.style.height='34px'; });
+});
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 90);
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
