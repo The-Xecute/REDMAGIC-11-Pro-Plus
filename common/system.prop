@@ -1,0 +1,57 @@
+# ZTE REDMAGIC 11 Pro+
+
+ro.product.manufacturer=ZTE
+ro.product.brand=REDMAGIC
+ro.product.marketname=REDMAGIC 11 Pro+
+ro.product.model=NX809J
+
+ro.product.brand=REDMAGIC
+ro.product.manufacturer=ZTE
+ro.product.device=NX809J
+ro.product.system.model=NX809J
+ro.product.model=NX809J
+ro.product.name=REDMAGIC 11 Pro+
+ro.product.marketname=REDMAGIC 11 Pro+
+
+#codename
+#ro.product.board=
+#ro.board.platform=
+
+# System
+ro.product.system.brand=REDMAGIC
+ro.product.system.device=NX809J
+ro.product.system.manufacturer=ZTE
+ro.product.system.model=NX809J
+ro.product.system.name=REDMAGIC 11 Pro+
+ro.product.system_ext.model=NX809J
+
+# Vendor
+ro.product.vendor.brand=REDMAGIC
+ro.product.vendor.device=NX809J
+ro.product.vendor.manufacturer=ZTE
+ro.product.vendor.model=NX809J
+ro.product.vendor.name=REDMAGIC 11 Pro+
+
+# ODM (Original Device Manufacturer)
+ro.product.odm.brand=REDMAGIC
+ro.product.odm.device=NX809J
+ro.product.odm.manufacturer=ZTE
+ro.product.odm.model=NX809J
+ro.product.odm.name=REDMAGIC 11 Pro+
+
+# BootImage
+ro.product.bootimage.brand=REDMAGIC
+ro.product.bootimage.device=NX809J
+ro.product.bootimage.manufacturer=ZTE
+ro.product.bootimage.model=NX809J
+ro.product.bootimage.name=REDMAGIC 11 Pro+
+
+# GPU Spoof (Adreno 840 - Snapdragon 8 Elite)
+ro.gpu.model=Adreno (TM) 840
+ro.hardware.gpuname=Adreno (TM) 840
+
+# CPU Spoof (Snapdragon 8 Elite)
+ro.soc.model=SM8850
+ro.hardware.chipname=SM8850
+ro.chipname=SM8850
+  
