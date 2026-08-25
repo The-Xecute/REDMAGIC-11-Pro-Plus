@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎮 ZTE Nubia Red Magic 11 Pro+ Spoof
+# 🎮 ZTE Nubia REDMAGIC 11 Pro+ Spoof
 
 ### Magisk Module by Xecute
 
@@ -15,11 +15,11 @@
 
 ## 📱 About
 
-ZTE Nubia Red Magic 11 Pro+ Spoof is a Magisk module that changes your device identity into a gaming flagship profile.
+ZTE Nubia REDMAGIC 11 Pro+ Spoof is a Magisk module that changes your device identity into a gaming flagship profile.
 
 This module spoofs your device information to:
 
-**ZTE Nubia Red Magic 11 Pro+**
+**ZTE Nubia REDMAGIC 11 Pro+**
 
 Designed for gaming compatibility, FPS unlock support, and Red Magic gaming fingerprint.
 
@@ -29,12 +29,12 @@ Designed for gaming compatibility, FPS unlock support, and Red Magic gaming fing
 
 | Property | Value |
 |---|---|
-| Device Name | Nubia Red Magic 11 Pro+ |
-| Model | NX769J |
-| Brand | Nubia |
+| Device Name | Nubia REDMAGIC 11 Pro+ |
+| Model | NX809J |
+| Brand | REDMAGIC |
 | Manufacturer | ZTE |
 | Chipset | Snapdragon 8 Elite |
-| GPU | Adreno 830 |
+| GPU | Adreno 840 |
 
 ---
 
@@ -89,12 +89,85 @@ Check your device information using:
 Expected:
 
 ```
-Device: Nubia Red Magic 11 Pro+
-Model: NX769J
-Brand: Nubia
+Device: Nubia REDMAGIC 11 Pro+
+Model: NX809J
+Brand: REDMAGIC
 Manufacturer: ZTE
 Chipset: Snapdragon 8 Elite
-GPU: Adreno 830
+GPU: Adreno 840
+```
+
+---
+
+## 🛠️ Troubleshooting
+
+If the module is not working:
+
+1. Reboot your device
+2. Enable Zygisk
+3. Disable other spoof modules
+4. Clear game cache
+5. Restart the game
+
+---
+
+## 🗑️ Uninstall
+
+1. Open Magisk
+2. Go to Modules
+3. Remove this module
+4. Reboot
+
+---
+
+## ⚠️ Disclaimer
+
+This module only changes software-level device information.
+
+It does not change:
+
+- Real CPU
+- Real GPU
+- Hardware components
+
+Use at your own risk.
+
+The developer is not responsible for:
+
+- Game account restrictions
+- Device issues
+- Data loss
+- Misuse of this module
+
+---
+
+## 📦 Module Information
+
+```
+Name: ZTE Nubia REDMAGIC 11 Pro+ Spoof
+Type: Magisk Module
+Platform: Android
+Root: Required
+Support: Magisk / KernelSU
+```
+
+---
+
+## ❤️ Credits
+
+Made by:
+
+**Xecute**
+
+Thanks to the Android Root Community.
+
+---
+
+<div align="center">
+
+⭐ Star the project if it helped you ⭐
+
+</div>GPU: Adreno 830
 ```
 
 ---
